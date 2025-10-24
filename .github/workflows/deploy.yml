@@ -1,3 +1,98 @@
+Florian G
+fl0rian_g
+En ligne
+
+Ugo
+
+ — Hier à 11:40
+SSH_PRIVATE_KEY
+-----BEGIN OPENSSH PRIVATE KEY-----
+b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABlwAAAAdzc2gtcn
+NhAAAAAwEAAQAAAYEAmvCFoFeavLU7aisl8SLQ6sPZ80OgJmtBWE1M2acWqseVfYgdlTXX
+2FWigAHIIu9gWytAAypCOOLy172yIXL5erAuemV9Rz+QSAxH6RwJ6mRmi3XWwsL0AfXlMh
++1p7oGsA0JWkQRyxUABY0NmVjkfxg/HlZ0yN7PZfUfXIhIXD8MKZyR6mtPB3bkQLiwFLCJ
+bmkOCNiOJEh4ij2JKqQfr0vK/8dG/dZTNPvHbLlhoE09abmagol84uWuMHgVNLio3jx17z
+Afficher plus
+-----BEGIN OPENSSH PRIVATE KEY-----.txt
+3 Ko
+Ugo
+ a commencé un appel qui a duré 13 minutes. — Hier à 11:47
+Florian G — Hier à 12:14
+essai maintenant  j'ai réussi par sms 😉
+si tu veux et peux lol
+Ugo
+
+ — Hier à 16:35
+Si tu viens de recevoir un sms de la part de github c'est moi je viens d'essayer de me connecter
+Florian G — Hier à 17:17
+Merde jai pas vu ton message dsl
+941082 is your GitHub authentication code.
+Voilà le code reçu
+Ugo
+
+ — Hier à 17:17
+Pas grave attents si tu veux je refais
+Normalement tu viens de nouveau de recevoir un sms avec un code 
+Tu as reçu le code ?
+Florian G — Hier à 17:26
+Yes
+Image
+Ugo
+
+ — Hier à 17:27
+super merci j'ai enfin réussi à y accéder
+Florian G — Hier à 17:27
+Magnifique !
+Enfin
+Ugo
+
+ — Hier à 17:28
+tu as du en recevoir un nouveau c'est pour github desktop cette fois ci
+Florian G — Hier à 17:28
+Oui
+977741 is your GitHub authentication code.
+Ugo
+
+ — Hier à 17:29
+super merci
+Florian G — Hier à 17:29
+Merci a toi
+Ugo
+
+ — Hier à 17:53
+ça ne marche pas je crois tu vas être condamné à faire le code
+Florian G — Hier à 17:57
+Snif
+Ugo
+
+ — Hier à 17:59
+en vrai il n' y en a pas pour longtemps
+si tu veux je te guide étape par étape 
+1ère étape : Ouvrir VSCode
+2ème étape : Dans VSCode ouvrir un nouveau Terminal
+3ème étape : mettre la commande : git clone https://github.com/Goerig-Florian/SVG-Generator.git 
+GitHub
+GitHub - Goerig-Florian/SVG-Generator
+Contribute to Goerig-Florian/SVG-Generator development by creating an account on GitHub.
+Contribute to Goerig-Florian/SVG-Generator development by creating an account on GitHub.
+4ème étape : Ouvrir le dossier SVG-Generator
+5ème étape : Modifiez le code src/utils/pb.ts de la façon suivante :
+
+import PocketBase from 'pocketbase';
+import type { TypedPocketBase } from "./pocketbase-types";
+var path='';
+if(import.meta.env.MODE === 'development')
+    path = 'http://localhost:8090/'    //localhost = machine de dev
+else path = 'http://localhost:8093/'   //localhost = machine de déploiement
+const pb = new PocketBase(path) as TypedPocketBase;
+export default pb; 
+6ème étape créer à la racine du dossier le dossier .github
+7ème étape : Dans le dossier .github créer le dossier workflows
+8ème étape : Dans le dossier workflows ajouter un fichier deploy.yml
+Ugo
+
+ — Hier à 18:06
+9ème étape : ajouter le code suivant dans deploy.yml :
 name: Build and Deploy to VPS
 
 on:
@@ -53,3 +148,120 @@ with:
     npm install astro
     npm install send server-destroy
     PORT=8085 pm2 restart colle-pratique || PORT=8085 pm2 start entry.mjs --name colle-pratique
+10ème étape fais un commit nommé : action github ajoutée 
+11ème étape : fais un push 
+Voilà si tu suis bien ces étapes ça devrait fonctionné 
+Florian G — Hier à 18:18
+Suis encore au taf je fais ca vers 21h
+Merci pour le tuto
+Ugo
+
+ — Hier à 18:21
+Ça marche ne t'inquiètes pas prends ton temps ce n'est pas grave je finirai demain
+Florian G — Hier à 21:28
+j'ai push il faut faire quoi maintenant?
+Ugo
+
+ — Hier à 22:34
+Laisse comme ça je verrai si ça à fonctionné demain matin
+Florian G — Hier à 23:16
+Ca roule merci
+Ugo
+
+ — 09:53
+hello tu as du recevoir un sms pour que je puisse de nouveau me connecter à github 
+Florian G — 10:05
+Yes
+366917 is your GitHub authentication code.
+Dsl de l'attente
+Ugo
+
+ — 10:07
+pas grave tu as du en recevoir un nouveau car le délai était dépassé
+Florian G — 10:07
+799580 is your GitHub authentication code.
+Ugo
+
+ — 10:08
+super merci
+ça a pas marché il me dit qu'il y a une erreur à la ligne 14 de ton fichier deploy.yml
+Image
+Florian G — 10:15
+Ca te dit ce que cest ?
+Ugo
+
+ — 10:17
+oui en fait il manque des tirets quand j'ai mis le code dans discord ça la tous niqué attents je te le redone dans un fichier cette fois ci
+Florian G — 10:17
+Image
+ah mince ok
+Ugo
+
+ — 10:19
+tiens tu as juste à copier collé le code et à le remplacer dans le deploy.yml ensuite tu refais un comit "action github ajoutée" puis un push
+name: Build and Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+Afficher plus
+deploy.txt
+2 Ko
+Florian G — 10:23
+merci
+﻿
+name: Build and Deploy to VPS
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build project
+      run: |
+        npm run build
+        cp package.json dist/server/
+    - name: Deploy to VPS via SCP
+      uses: appleboy/scp-action@v0.1.3
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22031
+        source: "dist/*"
+        target: "/var/www/colle-pratique/"
+        strip_components: 1
+        rm: false
+        overwrite: true
+        debug: true
+    - name: Install production dependencies on VPS
+      uses: appleboy/ssh-action@v1.0.0
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22031
+        script: |
+          cd /var/www/colle-pratique/server
+          npm ci
+          npm install astro
+          npm install send server-destroy
+          PORT=8085 pm2 restart colle-pratique || PORT=8085 pm2 start entry.mjs --name colle-pratique
+deploy.txt
+2 Ko
